@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handwritten Notes Converter</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container">
+      <h1>Smart Notes Converter</h1>
+      <p>Convert handwritten notes to accessible digital documents</p>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="upload-section" aria-labelledby="uploadHeading">
+      <h2 id="uploadHeading" style="margin-top:0;">Upload PDF</h2>
+      <div class="input-group">
+        <input type="file" id="pdfInput" accept="application/pdf" aria-label="Upload PDF file" />
+        <button id="processBtn" aria-label="Convert PDF to accessible document">
+          <span id="btnText">Convert to Accessible Document</span>
+          <span id="btnLoader" class="loading" style="display: none;"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="output-section" id="outputSection" role="region" aria-labelledby="outputHeading" style="display: none">
+      <h2 id="outputHeading">Conversion Results</h2>
+      <div class="image-gallery" id="imageGallery" aria-label="PDF page thumbnails"></div>
+      <div id="imageOutputs"></div>
+      <button id="downloadBtn" style="display: none" aria-label="Download DOCX file">
+        Download DOCX
+      </button>
+    </section>
+  </main>
+
+  <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Enlarged PDF page">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close image popup">&times;</button>
+      <img id="modalImage" src="" alt="Enlarged view of PDF page" />
+    </div>
+  </div>
+
+  <!-- Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.1/docx.min.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
